@@ -12,6 +12,13 @@
         <item name="searchViewStyle">@style/SearchTheme</item>
     </style>
 
+    <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primaryColor</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/thesis_logo</item>
+        <item name="windowSplashScreenAnimationDuration">600</item>
+        <item name="postSplashScreenTheme">@style/Theme.Thesisx</item>
+    </style>
+
     <style name="LayoutStyle">
         <item name="android:background">@color/white</item>
         <item name="android:paddingTop">@dimen/range_16</item>

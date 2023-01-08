@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Thesisx">
+        android:theme="@style/Theme.CustomSplashScreenTheme">
         <activity
             android:name=".ui.detail.loan_detail.LoanDetailActivity"
             android:exported="false" />
@@ -45,7 +45,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.CustomSplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
