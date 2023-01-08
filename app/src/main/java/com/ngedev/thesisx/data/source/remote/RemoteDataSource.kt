@@ -8,7 +8,7 @@ import com.ngedev.thesisx.data.source.remote.response.ThesisResponse
 import com.ngedev.thesisx.data.source.remote.response.UserResponse
 import com.ngedev.thesisx.data.source.remote.service.*
 import com.ngedev.thesisx.domain.model.User
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import kotlinx.coroutines.flow.Flow
 
 class RemoteDataSource(
@@ -65,7 +65,7 @@ class RemoteDataSource(
         userService.deleteLoan(formId, userId)
 
     fun insertForm(
-        loan: Loan,
+        loan: LoanModel,
         identityPhoto: Uri,
         userId: String
     ): Flow<FirebaseResponse<LoanResponse>> =

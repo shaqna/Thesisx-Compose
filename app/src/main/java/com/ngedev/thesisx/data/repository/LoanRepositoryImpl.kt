@@ -15,21 +15,18 @@ import com.ngedev.thesisx.data.source.remote.network.FirebaseResponse
 import com.ngedev.thesisx.data.source.remote.response.LoanResponse
 import com.ngedev.thesisx.data.source.remote.response.UserResponse
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.domain.repository.ILoanRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
 
 class LoanRepositoryImpl(
     private val remote: RemoteDataSource,
     private val local: LocalDataSource
 ): ILoanRepository {
-    override fun uploadForm(form: Loan, imageUri: Uri): Flow<Resource<Unit>> =
+    override fun uploadForm(form: LoanModel, imageUri: Uri): Flow<Resource<Unit>> =
         object : NetworkBoundRequest<LoanResponse>() {
             override suspend fun createCall(): Flow<FirebaseResponse<LoanResponse>> {
                 return remote.insertForm(form, imageUri,getCurrentUserId())
@@ -53,14 +50,14 @@ class LoanRepositoryImpl(
 
         }.asFlow()
 
-    override fun getLoanById(id: String): Flow<Resource<Loan>> =
-        object : NetworkBoundResource<Loan, LoanResponse>() {
-            override fun loadFromDB(): Flow<Loan?> {
+    override fun getLoanById(id: String): Flow<Resource<LoanModel>> =
+        object : NetworkBoundResource<LoanModel, LoanResponse>() {
+            override fun loadFromDB(): Flow<LoanModel?> {
                 Log.d("MyLog", local.selectLoanById(id).toFlowModel().toString())
                 return local.selectLoanById(id).toFlowModel()
             }
 
-            override fun shouldFetch(data: Loan?): Boolean {
+            override fun shouldFetch(data: LoanModel?): Boolean {
                 return data == null
             }
 
@@ -75,12 +72,12 @@ class LoanRepositoryImpl(
         }.asFlow()
 
 
-    override fun getMyLoan(ids: List<String>): Flow<Resource<List<Loan>>> =
-        object: NetworkBoundResource<List<Loan>, List<LoanResponse>>() {
-            override fun loadFromDB(): Flow<List<Loan>?> =
+    override fun getMyLoan(ids: List<String>): Flow<Resource<List<LoanModel>>> =
+        object: NetworkBoundResource<List<LoanModel>, List<LoanResponse>>() {
+            override fun loadFromDB(): Flow<List<LoanModel>?> =
                 local.selectAllLoan().toListFlowModel()
 
-            override fun shouldFetch(data: List<Loan>?): Boolean =
+            override fun shouldFetch(data: List<LoanModel>?): Boolean =
                 data == null
 
             override suspend fun createCall(): Flow<FirebaseResponse<List<LoanResponse>>> =

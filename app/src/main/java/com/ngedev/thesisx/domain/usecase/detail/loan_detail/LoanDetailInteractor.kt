@@ -1,7 +1,7 @@
 package com.ngedev.thesisx.domain.usecase.detail.loan_detail
 
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.repository.ILoanRepository
 import kotlinx.coroutines.flow.Flow
 
@@ -10,7 +10,7 @@ class LoanDetailInteractor(private val loanRepository: ILoanRepository): LoanDet
         return loanRepository.deleteLoan(id)
     }
 
-    override fun getLoanById(id: String): Flow<Resource<Loan>> {
+    override fun getLoanById(id: String): Flow<Resource<LoanModel>> {
         return loanRepository.getLoanById(id)
     }
 

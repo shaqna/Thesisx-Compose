@@ -1,27 +1,16 @@
 package com.ngedev.thesisx.ui.favorite.loan
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
-import com.ngedev.thesisx.domain.model.Thesis
 import com.ngedev.thesisx.domain.usecase.loan.BorrowUseCase
 import com.ngedev.thesisx.ui.loan.LoanViewModel
 import com.ngedev.thesisx.utils.CoroutinesTestRule
 import com.ngedev.thesisx.utils.DataDummy
 import com.ngedev.thesisx.utils.getOrAwaitValue
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScheduler
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
 import org.junit.Assert.*
 
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

@@ -6,7 +6,7 @@ import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.data.source.remote.network.FirebaseResponse
 import com.ngedev.thesisx.data.source.remote.response.LoanResponse
 import com.ngedev.thesisx.data.source.remote.response.UserResponse
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.utils.FirebaseConstant
 import kotlinx.coroutines.flow.*
 
@@ -41,7 +41,7 @@ class UserService : FirebaseService() {
 
 
    fun insertForm(
-       form: Loan,
+       form: LoanModel,
        imageUri: Uri,
        userId: String
    ): Flow<FirebaseResponse<LoanResponse>> =
@@ -66,7 +66,7 @@ class UserService : FirebaseService() {
                            loanId
                        )
                        emitAll(
-                           setDocument<Loan, LoanResponse>(
+                           setDocument<LoanModel, LoanResponse>(
                                FirebaseConstant.Collections.LOAN_COLLECTION,
                                loanId,
                                updateLoanData

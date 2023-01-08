@@ -3,7 +3,7 @@ package com.ngedev.thesisx.ui.form
 import android.net.Uri
 import androidx.lifecycle.*
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.Thesis
 import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.domain.usecase.form.LoanFormUseCase
@@ -37,7 +37,7 @@ class LoanFormViewModel(private val useCase: LoanFormUseCase) : ViewModel() {
 
     fun getImageUri(): LiveData<Uri> = imageUri
 
-    fun uploadForm(form: Loan, imageUri: Uri): LiveData<Resource<Unit>> =
+    fun uploadForm(form: LoanModel, imageUri: Uri): LiveData<Resource<Unit>> =
         useCase.uploadForm(form, imageUri).asLiveData()
 
     fun changeStateBorrow(state: Boolean, id: String): LiveData<Unit> {

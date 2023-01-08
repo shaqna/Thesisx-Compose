@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.ngedev.thesisx.databinding.FragmentBorrowBinding
 import com.ngedev.thesisx.domain.Resource
 import com.ngedev.thesisx.domain.di.borrowModule
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.ui.detail.loan_detail.LoanAdapter
 import com.ngedev.thesisx.utils.State
@@ -122,7 +122,7 @@ class LoanFragment : Fragment() {
         }
     }
 
-    private fun setBorrowing(resource: Resource<List<Loan>>?) {
+    private fun setBorrowing(resource: Resource<List<LoanModel>>?) {
         when (resource) {
             is Resource.Success -> {
                 loadingState(state = false)

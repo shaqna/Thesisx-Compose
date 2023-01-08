@@ -1,13 +1,13 @@
 package com.ngedev.thesisx.domain.usecase.loan
 
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.domain.repository.ILoanRepository
 import kotlinx.coroutines.flow.Flow
 
 class BorrowInteractor(private val repository: ILoanRepository) : BorrowUseCase {
-    override fun getAllBorrowing(borrowingIds: List<String>): Flow<Resource<List<Loan>>> =
+    override fun getAllBorrowing(borrowingIds: List<String>): Flow<Resource<List<LoanModel>>> =
         repository.getMyLoan(borrowingIds)
 
 

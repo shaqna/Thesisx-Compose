@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Loan(
+data class LoanModel(
     var uid: String = "",
     var name: String = "",
     var npm: String = "",

@@ -1,5 +1,5 @@
 package com.ngedev.thesisx.domain.model
 
-data class CupBoard(
+data class CupBoardModel(
     val key: String
 )

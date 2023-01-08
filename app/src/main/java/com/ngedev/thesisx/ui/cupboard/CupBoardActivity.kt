@@ -7,7 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.ngedev.thesisx.databinding.ActivityLockerBinding
 import com.ngedev.thesisx.domain.Resource
 import com.ngedev.thesisx.domain.di.cupBoardModule
-import com.ngedev.thesisx.domain.model.CupBoard
+import com.ngedev.thesisx.domain.model.CupBoardModel
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 
@@ -27,7 +27,7 @@ class CupBoardActivity : AppCompatActivity() {
         binding.layoutKeyLocker.isVisible = false
     }
 
-    private fun onKeyResponse(resource: Resource<CupBoard>) {
+    private fun onKeyResponse(resource: Resource<CupBoardModel>) {
         when(resource) {
             is Resource.Loading -> {
                 loadingShow(true)

@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.ngedev.thesisx.domain.Resource
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.User
 import com.ngedev.thesisx.domain.usecase.loan.BorrowUseCase
 
 class LoanViewModel(private val useCase: BorrowUseCase) : ViewModel() {
 
-    fun getAllUserThesisBorrow(ids: List<String>): LiveData<Resource<List<Loan>>> =
+    fun getAllUserThesisBorrow(ids: List<String>): LiveData<Resource<List<LoanModel>>> =
         useCase.getAllBorrowing(ids).asLiveData()
 
     fun currentUser(): LiveData<Resource<User>> = useCase.getCurrentUser().asLiveData()

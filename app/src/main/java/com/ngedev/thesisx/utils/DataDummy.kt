@@ -1,7 +1,7 @@
 package com.ngedev.thesisx.utils
 
-import com.ngedev.thesisx.domain.model.CupBoard
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.CupBoardModel
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.Thesis
 import com.ngedev.thesisx.domain.model.User
 
@@ -12,8 +12,8 @@ object DataDummy {
 
     fun generateDummyResetPasswordResponse(): Unit? = null
 
-    fun generateDummyCupBoardResponse(): CupBoard =
-        CupBoard(key = "1234")
+    fun generateDummyCupBoardResponse(): CupBoardModel =
+        CupBoardModel(key = "1234")
 
     fun generateDummyThesisResponse(): Thesis =
         Thesis(
@@ -40,11 +40,11 @@ object DataDummy {
 
     fun generateDummyFormResponse():Unit? = null
 
-    fun generateDummyLoanListResponse(): List<Loan> {
-        val listLoan = mutableListOf<Loan>()
+    fun generateDummyLoanListResponse(): List<LoanModel> {
+        val listLoanModel = mutableListOf<LoanModel>()
 
         for (i in 0..10) {
-            val loan = Loan(
+            val loan = LoanModel(
                 uid = "uid",
                 name = "shaq-name",
                 npm = "1900333444",
@@ -59,10 +59,10 @@ object DataDummy {
                 userId = "user-id",
                 thesisId = "thesis-id"
             )
-            listLoan.add(loan)
+            listLoanModel.add(loan)
         }
 
-        return listLoan
+        return listLoanModel
     }
 
     fun generateDummyUser() =

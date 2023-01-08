@@ -1,9 +1,9 @@
 package com.ngedev.thesisx.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 
-class DiffCallBack(private val mOldList: List<Loan>, private val mNewList: List<Loan>) :
+class DiffCallBack(private val mOldList: List<LoanModel>, private val mNewList: List<LoanModel>) :
     DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return mOldList.size

@@ -9,27 +9,24 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ngedev.thesisx.R
-import com.ngedev.thesisx.databinding.ItemBookBinding
 import com.ngedev.thesisx.databinding.ItemLoanBinding
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.utils.Category
 import com.ngedev.thesisx.utils.DateConverter
-import com.ngedev.thesisx.utils.DiffCallBack
 import com.ngedev.thesisx.utils.ExtraName
 
 class LoanAdapter(private val context: Context) :
     RecyclerView.Adapter<LoanAdapter.LoanThesisViewHolder>() {
 
-    private val forms = arrayListOf<Loan>()
+    private val forms = arrayListOf<LoanModel>()
 
-    var onItemClick: ((Loan) -> Unit)? = null
+    var onItemClick: ((LoanModel) -> Unit)? = null
 
-    fun setItems(items: List<Loan>) {
+    fun setItems(items: List<LoanModel>) {
 
         this.forms.clear()
         this.forms.addAll(items)
@@ -52,7 +49,7 @@ class LoanAdapter(private val context: Context) :
 
     inner class LoanThesisViewHolder(private val binding: ItemLoanBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(form: Loan) {
+        fun bind(form: LoanModel) {
 
             binding.tvBookTitle.text = form.book_title
             binding.tvLoanName.text = form.author
@@ -100,7 +97,7 @@ class LoanAdapter(private val context: Context) :
             view: View,
             optionMenu: Int,
             context: Context,
-            loan: Loan,
+            loan: LoanModel,
         ) {
             val popup = PopupMenu(context, view)
             popup.menuInflater.inflate(optionMenu, popup.menu)

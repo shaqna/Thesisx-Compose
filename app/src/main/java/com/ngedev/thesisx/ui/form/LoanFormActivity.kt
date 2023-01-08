@@ -21,7 +21,7 @@ import com.ngedev.thesisx.MainActivity
 import com.ngedev.thesisx.databinding.ActivityLoanThesisFormBinding
 import com.ngedev.thesisx.domain.Resource
 import com.ngedev.thesisx.domain.di.loanFormModule
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.domain.model.Thesis
 import com.ngedev.thesisx.utils.DateConverter
 import com.ngedev.thesisx.utils.ExtraName
@@ -146,7 +146,7 @@ class LoanFormActivity : AppCompatActivity() {
         with(binding) {
             _thesis = viewModel.getThesis().value!!
             viewModel.user.observe(this@LoanFormActivity) { user ->
-                val loan = Loan(
+                val loan = LoanModel(
                     uid = "",
                     name = tilLoanName.editText?.text.toString(),
                     npm = tilLoanNpm.editText?.text.toString(),

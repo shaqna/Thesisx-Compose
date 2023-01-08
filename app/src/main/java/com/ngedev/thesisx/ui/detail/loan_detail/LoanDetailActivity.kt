@@ -3,25 +3,12 @@ package com.ngedev.thesisx.ui.detail.loan_detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import androidx.core.view.isVisible
-import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
-import com.ngedev.thesisx.R
 import com.ngedev.thesisx.databinding.ActivityDetailFormBinding
-import com.ngedev.thesisx.domain.Resource
 import com.ngedev.thesisx.domain.di.loanDetailModule
-import com.ngedev.thesisx.domain.model.Loan
+import com.ngedev.thesisx.domain.model.LoanModel
 import com.ngedev.thesisx.ui.cupboard.CupBoardActivity
 import com.ngedev.thesisx.utils.DateConverter
 import com.ngedev.thesisx.utils.ExtraName
-import com.ngedev.thesisx.utils.State
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -41,7 +28,7 @@ class LoanDetailActivity : AppCompatActivity() {
     }
 
     private fun setObserver() {
-        val loan = intent.getParcelableExtra<Loan>(ExtraName.FORM)
+        val loan = intent.getParcelableExtra<LoanModel>(ExtraName.FORM)
 
         if (loan != null) {
 //            viewModel.getLoanById(loanId).observe(this, ::setDetailLoan)
@@ -71,7 +58,7 @@ class LoanDetailActivity : AppCompatActivity() {
 //        }
 //    }
 
-    private fun setDetailContent(form: Loan) {
+    private fun setDetailContent(form: LoanModel) {
         with(binding) {
             tvBookTitle.text = form.book_title
             tvAuthorName.text = form.author
